@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>COOL-UNI | COOL-UNI</title>
+    <meta name="generator" content="VuePress 1.7.1">
+    <script>
+            let oldHref = document.location.href;
+			let box = document.createElement("div");
+			box.className = 'h5-demo'
+            let iframe = document.createElement("iframe");
+            let img = document.createElement("img");
+            let qrcode = document.createElement("img");
+            let tips = document.createElement("p");
+
+            window.onload = function () {
+                let bodyList = document.querySelector("body")
+                    , observer = new MutationObserver(function (mutations) {
+                        mutations.forEach(function (mutation) {
+                            if (oldHref != document.location.href) {
+								oldHref = document.location.href;
+								
+								console.log(oldHref)
+								
+								onUrlChange(oldHref)
+								setWxVideoCard(oldHref)
+                            }
+                        });
+                    });
+
+                let config = {
+                    childList: true,
+                    subtree: true
+                };
+
+                observer.observe(bodyList, config);
+                
+				// box.append(img, iframe, tips, tips);
+				onUrlChange(location.href);
+				setWxVideoCard(location.href)
+				setNavBadge()
+            };
+
+            function onUrlChange(url) {
+				let className = document.querySelector('.theme-container').className.replace('uni', '')
+				
+                if (!document.querySelector('.h5-demo') && document.querySelector('.page')) {
+                    document.querySelector('.page').append(box);
+                }
+
+                if (url.split('/')[3]== 'uni' && !url.includes('components/test')) {
+                    document.querySelector('.theme-container').className = className + ' uni'
+                    box.style.display = 'block'
+
+                    box.style.position = "fixed";
+                    box.style.top = "2rem";
+                    box.style["z-index"] = 99;
+                    box.style["background-color"] = "#fff";
+                    box.style["border-radius"] = "66px";
+                    box.style["transform"] = "scale(0.85)";
+
+                    img.src = "/phone.png";
+                    img.style.display = "block";
+                    img.style.height = "800px";
+                    img.style.width = "420px";
+                    img.style.position = "relative";
+                    img.style["z-index"] = "2";
+                    img.style["pointer-events"] = "none";
+
+                    qrcode.src = "/uni/miniapp.jpeg";
+                    qrcode.style.display = "block";
+                    qrcode.style.height = "200px";
+                    qrcode.style.width = "200px";
+                    qrcode.style.position = "absolute";
+                    qrcode.style.bottom = "-220px";
+                    qrcode.style.left = "calc(50% - 100px)";
+                    qrcode.style["z-index"] = "2";
+
+                    tips.innerText = '示例仅供参考，请以真机为主';
+                    tips.style['text-align'] = "center";
+                    tips.style.width = "100%";
+                    tips.style.position = "absolute";
+                    tips.style.bottom = "14px";
+                    tips.style.left = "0";
+                    tips.style["z-index"] = "2";
+                    tips.style["font-size"] = "13px";
+
+                    iframe.src = "";
+                    iframe.setAttribute("frameborder", 0);
+                    iframe.style.display = "block";
+                    iframe.style.height = "692px";
+                    iframe.style.width = "364px";
+                    iframe.style.position = "absolute";
+                    iframe.style.left = "28px";
+                    iframe.style.top = "60px";
+
+                    let path = url.split("/uni/")[1].replace("components", "/pages/demo");
+
+                    if (url.includes("components")) {
+                        let url = 'https://uni-demo.cool-js.com?r=' + Math.random() + '/#' + path;
+                        iframe.src = url.replace('.html', '');
+                    } else {
+                        iframe.src = "https://uni-demo.cool-js.com?r=" + Math.random();
+                    }
+                    box.append(img, iframe, tips, tips);
+                } else {
+                    document.querySelector('.theme-container').className = className
+                    box.style.display = 'none'
+                }
+			}
+			
+			function setWxVideoCard(url) {
+				let img = document.querySelector('.wx-video-card')
+
+				if (!img) {
+					img = document.createElement('img');
+					img.src = '/wx-video-card.jpg'
+					img.className = 'wx-video-card'
+					document.body.append(img)
+				}
+
+				console.log(url)
+
+				img.style.display = url !== 'http://localhost:8081/' ? 'none' : 'block'
+			}
+
+			function setNavBadge() {
+				let div = document.querySelector('.home-badge')
+
+				if (!div) {
+					div = document.createElement('div');
+					div.className = 'home-badge'
+					document.querySelector('.nav-item:first-child').append(div)
+				}
+			}
+            </script>
+    <meta name="description" content="COOL-UNI官方文档">
+    
+    <link rel="preload" href="../assets/css/0.styles.f86feb59.css" as="style"><link rel="preload" href="../assets/js/app.632f5902.js" as="script"><link rel="preload" href="../assets/js/2.1d567b8e.js" as="script"><link rel="preload" href="../assets/js/44.c483aa5d.js" as="script"><link rel="prefetch" href="../assets/js/10.5c4346d3.js"><link rel="prefetch" href="../assets/js/11.25f4c5c1.js"><link rel="prefetch" href="../assets/js/12.aab2f8f3.js"><link rel="prefetch" href="../assets/js/13.ede91274.js"><link rel="prefetch" href="../assets/js/14.5bbc365a.js"><link rel="prefetch" href="../assets/js/15.7d445c6e.js"><link rel="prefetch" href="../assets/js/16.d68ba72b.js"><link rel="prefetch" href="../assets/js/17.36828e6c.js"><link rel="prefetch" href="../assets/js/18.ec16d486.js"><link rel="prefetch" href="../assets/js/19.57258ca2.js"><link rel="prefetch" href="../assets/js/20.dc1dfb5d.js"><link rel="prefetch" href="../assets/js/21.c966532e.js"><link rel="prefetch" href="../assets/js/22.37a39ead.js"><link rel="prefetch" href="../assets/js/23.088c7eac.js"><link rel="prefetch" href="../assets/js/24.7b561970.js"><link rel="prefetch" href="../assets/js/25.d2014e69.js"><link rel="prefetch" href="../assets/js/26.52fa5b02.js"><link rel="prefetch" href="../assets/js/27.bc132651.js"><link rel="prefetch" href="../assets/js/28.d26c94c4.js"><link rel="prefetch" href="../assets/js/29.d178336c.js"><link rel="prefetch" href="../assets/js/3.c5336671.js"><link rel="prefetch" href="../assets/js/30.d69ae124.js"><link rel="prefetch" href="../assets/js/31.962a7921.js"><link rel="prefetch" href="../assets/js/32.6bfca414.js"><link rel="prefetch" href="../assets/js/33.8e97feba.js"><link rel="prefetch" href="../assets/js/34.efd3a73c.js"><link rel="prefetch" href="../assets/js/35.27186de7.js"><link rel="prefetch" href="../assets/js/36.87b083a3.js"><link rel="prefetch" href="../assets/js/37.be3ea5ed.js"><link rel="prefetch" href="../assets/js/38.fc7e1daf.js"><link rel="prefetch" href="../assets/js/39.0075764f.js"><link rel="prefetch" href="../assets/js/4.d4a1aa4c.js"><link rel="prefetch" href="../assets/js/40.8f1fa7df.js"><link rel="prefetch" href="../assets/js/41.0488ab1a.js"><link rel="prefetch" href="../assets/js/42.b9a2aa89.js"><link rel="prefetch" href="../assets/js/43.99db70d9.js"><link rel="prefetch" href="../assets/js/45.c5d39b29.js"><link rel="prefetch" href="../assets/js/46.7dd13f59.js"><link rel="prefetch" href="../assets/js/47.dffb79e0.js"><link rel="prefetch" href="../assets/js/48.bf62eb09.js"><link rel="prefetch" href="../assets/js/49.7b60e2e9.js"><link rel="prefetch" href="../assets/js/5.03a08fb3.js"><link rel="prefetch" href="../assets/js/50.e46c47ab.js"><link rel="prefetch" href="../assets/js/51.b006f06f.js"><link rel="prefetch" href="../assets/js/52.b271eac9.js"><link rel="prefetch" href="../assets/js/53.cb2be355.js"><link rel="prefetch" href="../assets/js/54.157397eb.js"><link rel="prefetch" href="../assets/js/55.d6cb274f.js"><link rel="prefetch" href="../assets/js/56.18eb9610.js"><link rel="prefetch" href="../assets/js/57.3bfe4b73.js"><link rel="prefetch" href="../assets/js/58.ddc351e4.js"><link rel="prefetch" href="../assets/js/59.bf7297f9.js"><link rel="prefetch" href="../assets/js/6.55235906.js"><link rel="prefetch" href="../assets/js/60.38f9822b.js"><link rel="prefetch" href="../assets/js/61.0cb8b483.js"><link rel="prefetch" href="../assets/js/62.9f9802cc.js"><link rel="prefetch" href="../assets/js/63.8cc6f33f.js"><link rel="prefetch" href="../assets/js/64.83a96a63.js"><link rel="prefetch" href="../assets/js/65.cfd0f06b.js"><link rel="prefetch" href="../assets/js/66.b6950a7f.js"><link rel="prefetch" href="../assets/js/67.c0a281eb.js"><link rel="prefetch" href="../assets/js/68.80e56641.js"><link rel="prefetch" href="../assets/js/69.03970171.js"><link rel="prefetch" href="../assets/js/7.65c986a9.js"><link rel="prefetch" href="../assets/js/70.1310e9ae.js"><link rel="prefetch" href="../assets/js/71.42f22a00.js"><link rel="prefetch" href="../assets/js/72.69eb0211.js"><link rel="prefetch" href="../assets/js/73.923d5a33.js"><link rel="prefetch" href="../assets/js/74.2978ada8.js"><link rel="prefetch" href="../assets/js/75.f31c7b12.js"><link rel="prefetch" href="../assets/js/76.ce57270e.js"><link rel="prefetch" href="../assets/js/77.e1edd344.js"><link rel="prefetch" href="../assets/js/78.664b6a81.js"><link rel="prefetch" href="../assets/js/79.3edbffd4.js"><link rel="prefetch" href="../assets/js/8.1ff34c57.js"><link rel="prefetch" href="../assets/js/80.442991f5.js"><link rel="prefetch" href="../assets/js/81.612bb059.js"><link rel="prefetch" href="../assets/js/82.fc7ce266.js"><link rel="prefetch" href="../assets/js/83.5609bf38.js"><link rel="prefetch" href="../assets/js/84.6d29c805.js"><link rel="prefetch" href="../assets/js/85.775dcaec.js"><link rel="prefetch" href="../assets/js/86.8a7ea3e9.js"><link rel="prefetch" href="../assets/js/87.346bae44.js"><link rel="prefetch" href="../assets/js/88.ec1a855d.js"><link rel="prefetch" href="../assets/js/89.1c577c10.js"><link rel="prefetch" href="../assets/js/9.91e158b5.js"><link rel="prefetch" href="../assets/js/90.c09ba3ef.js"><link rel="prefetch" href="../assets/js/91.00826bbb.js"><link rel="prefetch" href="../assets/js/92.1cd87f7a.js"><link rel="prefetch" href="../assets/js/93.bc079dd5.js"><link rel="prefetch" href="../assets/js/94.7c0966f1.js"><link rel="prefetch" href="../assets/js/95.3a5f0cf9.js">
+    <link rel="stylesheet" href="../assets/css/0.styles.f86feb59.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="../index.html" class="home-link router-link-active"><img src="https://cool-show.oss-cn-shanghai.aliyuncs.com/comm/docs/logo.png" alt="COOL-UNI" class="logo"> <span class="site-name can-hide">COOL-UNI</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="../index.html" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="index.html" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  组件
+</a></div><div class="nav-item"><a href="https://cool-js.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  后端
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><a href="https://uni-docs.cool-js.com/team/" class="nav-link">
+  团队
+</a></div><div class="nav-item"><a href="https://github.com/cool-team-official/cool-uni" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="../index.html" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="index.html" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  组件
+</a></div><div class="nav-item"><a href="https://cool-js.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  后端
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><a href="https://uni-docs.cool-js.com/team/" class="nav-link">
+  团队
+</a></div><div class="nav-item"><a href="https://github.com/cool-team-official/cool-uni" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="index.html" aria-current="page" class="active sidebar-link">COOL-UNI</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="index.html#简介" class="sidebar-link">简介</a></li><li class="sidebar-sub-header"><a href="index.html#演示" class="sidebar-link">演示</a></li><li class="sidebar-sub-header"><a href="index.html#下载" class="sidebar-link">下载</a></li><li class="sidebar-sub-header"><a href="index.html#运行" class="sidebar-link">运行</a></li><li class="sidebar-sub-header"><a href="index.html#配置" class="sidebar-link">配置</a></li><li class="sidebar-sub-header"><a href="index.html#兼容提示" class="sidebar-link">兼容提示</a></li><li class="sidebar-sub-header"><a href="index.html#版本" class="sidebar-link">版本</a></li></ul></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>组件</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><section class="sidebar-group is-sub-group depth-1"><p class="sidebar-heading open"><span>Basic 基础组件</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="components/basic/button.html" class="sidebar-link">Button 按钮</a></li><li><a href="components/basic/text.html" class="sidebar-link">Text 文本</a></li><li><a href="components/basic/input.html" class="sidebar-link">Input 输入框</a></li><li><a href="components/basic/image.html" class="sidebar-link">Image 图片</a></li><li><a href="components/basic/icon.html" class="sidebar-link">Icon 图标</a></li><li><a href="components/basic/tag.html" class="sidebar-link">Tag 标签</a></li><li><a href="components/basic/divider.html" class="sidebar-link">Divider 标签</a></li></ul></section></li><li><section class="sidebar-group is-sub-group depth-1"><p class="sidebar-heading"><span>Feedback 反馈组件</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="components/feedback/toast.html" class="sidebar-link">Toast 吐司提示</a></li><li><a href="components/feedback/message.html" class="sidebar-link">Message 消息提示</a></li><li><a href="components/feedback/loading.html" class="sidebar-link">Loading 加载框</a></li></ul></section></li><li><section class="sidebar-group is-sub-group depth-1"><p class="sidebar-heading"><span>Form 表单组件</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="components/form/radio.html" class="sidebar-link">Radio 单选框</a></li><li><a href="components/form/checkbox.html" class="sidebar-link">Checkbox 多选框</a></li><li><a href="components/form/switch.html" class="sidebar-link">Switch 开关</a></li><li><a href="components/form/select.html" class="sidebar-link">Select 下拉选择</a></li><li><a href="components/form/select-region.html" class="sidebar-link">SelectRegion 下拉城市选择</a></li><li><a href="components/form/input-number.html" class="sidebar-link">InputNumber 计数器</a></li><li><a href="components/form/textarea.html" class="sidebar-link">Textarea 文本域</a></li><li><a href="components/form/upload.html" class="sidebar-link">Upload 上传</a></li><li><a href="components/form/rate.html" class="sidebar-link">Rate 评分</a></li><li><a href="components/form/rules.html" class="sidebar-link">Rules 表单规则</a></li></ul></section></li><li><section class="sidebar-group is-sub-group depth-1"><p class="sidebar-heading"><span>Operate 操作组件</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="components/operate/loadmore.html" class="sidebar-link">Loadmore 加载更多</a></li><li><a href="components/operate/dialog.html" class="sidebar-link">Dialog 对话框</a></li><li><a href="components/operate/confirm.html" class="sidebar-link">Confirm 确认框</a></li><li><a href="components/operate/action-sheet.html" class="sidebar-link">ActionSheet 底部弹框</a></li><li><a href="components/operate/search.html" class="sidebar-link">Search 搜索框</a></li></ul></section></li><li><section class="sidebar-group is-sub-group depth-1"><p class="sidebar-heading"><span>Nav 导航组件</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="components/nav/tabs.html" class="sidebar-link">Tabs 选项卡</a></li><li><a href="components/nav/topbar.html" class="sidebar-link">Topbar 顶部导航</a></li><li><a href="components/nav/tabbar.html" class="sidebar-link">Tabbar 底部导航</a></li></ul></section></li><li><section class="sidebar-group is-sub-group depth-1"><p class="sidebar-heading"><span>Layout 布局组件</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="components/layout/flex.html" class="sidebar-link">Flex 柔性</a></li><li><a href="components/layout/grid.html" class="sidebar-link">Grid 宫格</a></li><li><a href="components/layout/waterfall.html" class="sidebar-link">WaterFall 瀑布流</a></li><li><a href="components/layout/list.html" class="sidebar-link">List 列表</a></li><li><a href="components/layout/card.html" class="sidebar-link">Card 卡片</a></li><li><a href="components/layout/scroller.html" class="sidebar-link">Scroller 滚动区域</a></li></ul></section></li><li><section class="sidebar-group is-sub-group depth-1"><p class="sidebar-heading"><span>View 视图组件</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="components/view/popup.html" class="sidebar-link">Popup 弹出层</a></li><li><a href="components/view/badge.html" class="sidebar-link">Badge 角标</a></li><li><a href="components/view/avatar.html" class="sidebar-link">Avatar 头像</a></li><li><a href="components/view/countdown.html" class="sidebar-link">CountDown 倒计时</a></li><li><a href="components/view/noticebar.html" class="sidebar-link">NoticeBar 通知公告栏</a></li><li><a href="components/view/progress.html" class="sidebar-link">Progress 进度条</a></li><li><a href="components/view/slider.html" class="sidebar-link">Slider 滑块</a></li><li><a href="components/view/swiper.html" class="sidebar-link">Swiper 轮播图</a></li><li><a href="components/view/timeline.html" class="sidebar-link">Timeline 时间线</a></li></ul></section></li><li><section class="sidebar-group is-sub-group depth-1"><p class="sidebar-heading"><span>Advanced 高级组件</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="components/advanced/list-index.html" class="sidebar-link">ListIndex 索引列表</a></li><li><a href="components/advanced/filter-bar.html" class="sidebar-link">FilterBar 过滤栏</a></li><li><a href="components/advanced/captcha.html" class="sidebar-link">Captcha 验证码输入框</a></li><li><a href="components/advanced/cropper.html" class="sidebar-link">Cropper 图片裁剪</a></li><li><a href="components/advanced/canvas.html" class="sidebar-link">Canvas 画布</a></li><li><a href="components/advanced/guide.html" class="sidebar-link">Guide 操作引导</a></li><li><a href="components/advanced/calendar.html" class="sidebar-link">Calendar 日历</a></li></ul></section></li><li><section class="sidebar-group is-sub-group depth-1"><p class="sidebar-heading"><span>Test 特殊组件</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="components/test/page.html" class="sidebar-link">Page 页面</a></li></ul></section></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="cool-uni"><a href="index.html#cool-uni" class="header-anchor">#</a> COOL-UNI</h1> <h2 id="简介"><a href="index.html#简介" class="header-anchor">#</a> 简介</h2> <p>COOL-UNI 是<a href="https://uniapp.dcloud.io/" target="_blank" rel="noopener noreferrer">uni-app<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>的组件库，使用简单，兼容多端。</p> <h4 id="版权信息"><a href="index.html#版权信息" class="header-anchor">#</a> 版权信息</h4> <p><code>COOL-UNI</code>遵循<a href="https://baike.baidu.com/item/MIT/10772952" target="_blank" rel="noopener noreferrer">MIT<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>开源协议，无需支付任何费用，也无需授权，即可将<code>COOL-UNI</code>应用到您的产品中。</p> <div class="custom-block warning"><p class="custom-block-title">WARNING</p> <p>不可以用于非法用途，如：赌博、色情等，由此产生的法律问题，<code>COOL</code>官方不承担任何责任</p></div> <h2 id="演示"><a href="index.html#演示" class="header-anchor">#</a> 演示</h2> <h3 id="小程序-h5"><a href="index.html#小程序-h5" class="header-anchor">#</a> 小程序 | H5</h3> <p><img src="miniapp.jpeg" style="width:260px;"> <img src="h5.png" style="width:260px;"></p> <h3 id="h5-演示地址"><a href="index.html#h5-演示地址" class="header-anchor">#</a> H5 演示地址</h3> <p><a href="https://uni-show.cool-js.com/" target="_blank" rel="noopener noreferrer">H5 演示地址<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <h2 id="下载"><a href="index.html#下载" class="header-anchor">#</a> 下载</h2> <p>npm 方式</p> <div class="language-cmd extra-class"><pre class="language-text"><code>npm install cl-uni
+</code></pre></div><p>yarn 方式</p> <div class="language-cmd extra-class"><pre class="language-text"><code>yarn add cl-uni
+</code></pre></div><p>安装依赖后，存在目录 <code>node_modules/cl-uni</code> 即可</p> <h2 id="运行"><a href="index.html#运行" class="header-anchor">#</a> 运行</h2> <div class="custom-block warning"><p class="custom-block-title">WARNING</p> <p>cool-uni 使用<code>easycom</code>模式（自动引入组件），简化组件使用。无需在页面里面引入和注册组件，按实际使用打包</p></div> <p>组件自动引入</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// pages.json</span>
+<span class="token punctuation">{</span>
+	<span class="token string-property property">&quot;easycom&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+		<span class="token string-property property">&quot;autoscan&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+		<span class="token string-property property">&quot;custom&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token comment">// 1.1.0 版本前:</span>
+            <span class="token string-property property">&quot;cl-(.*)&quot;</span><span class="token operator">:</span> <span class="token string">&quot;cl-uni/components/$1/$1.vue&quot;</span>
+
+            <span class="token comment">// 1.1.0 版本后:</span>
+            <span class="token string-property property">&quot;cl-(.*)&quot;</span><span class="token operator">:</span> <span class="token string">&quot;cl-uni/components/cl-$1/cl-$1.vue&quot;</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>引入组件样式（必须）</p> <div class="language-html extra-class"><pre class="language-html"><code>// App.vue
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>scss<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token style"><span class="token language-css">
+	<span class="token atrule"><span class="token rule">@import</span> <span class="token string">&quot;cl-uni/index.scss&quot;</span><span class="token punctuation">;</span></span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><p>引入主题（必须）</p> <div class="language-css extra-class"><pre class="language-css"><code>// uni.scss
+<span class="token atrule"><span class="token rule">@import</span> <span class="token string">&quot;cl-uni/theme.scss&quot;</span><span class="token punctuation">;</span></span>
+
+<span class="token comment">/* 默认主题色 */</span>
+$<span class="token property">cl-color-primary</span><span class="token punctuation">:</span> #409eff<span class="token punctuation">;</span>
+$<span class="token property">cl-color-default</span><span class="token punctuation">:</span> #dcdfe6<span class="token punctuation">;</span>
+$<span class="token property">cl-color-success</span><span class="token punctuation">:</span> #67c23a<span class="token punctuation">;</span>
+$<span class="token property">cl-color-warning</span><span class="token punctuation">:</span> #e6a23c<span class="token punctuation">;</span>
+$<span class="token property">cl-color-error</span><span class="token punctuation">:</span> #dd524d<span class="token punctuation">;</span>
+$<span class="token property">cl-color-info</span><span class="token punctuation">:</span> #909399<span class="token punctuation">;</span>
+$<span class="token property">cl-color-disabled</span><span class="token punctuation">:</span> #c0c4cc<span class="token punctuation">;</span>
+
+<span class="token comment">/* 自定义主题色 */</span>
+$<span class="token property">cl-color-primary</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span>
+$<span class="token property">cl-color-default</span><span class="token punctuation">:</span> green<span class="token punctuation">;</span>
+$<span class="token property">cl-color-success</span><span class="token punctuation">:</span> yellow<span class="token punctuation">;</span>
+$<span class="token property">cl-color-warning</span><span class="token punctuation">:</span> pink<span class="token punctuation">;</span>
+$<span class="token property">cl-color-error</span><span class="token punctuation">:</span> blue<span class="token punctuation">;</span>
+$<span class="token property">cl-color-info</span><span class="token punctuation">:</span> white<span class="token punctuation">;</span>
+$<span class="token property">cl-color-disabled</span><span class="token punctuation">:</span> black<span class="token punctuation">;</span>
+</code></pre></div><div class="custom-block warning"><p class="custom-block-title">WARNING</p> <p>支付宝小程序下，需要在 <code>main.js</code> 中配置主题色</p></div> <h2 id="配置"><a href="index.html#配置" class="header-anchor">#</a> 配置</h2> <p>使用组件时，附加的一些配置</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// main.js</span>
+<span class="token keyword">import</span> Vue <span class="token keyword">from</span> <span class="token string">&quot;vue&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> ClUni <span class="token keyword">from</span> <span class="token string">&quot;cl-uni&quot;</span><span class="token punctuation">;</span>
+
+Vue<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>ClUni<span class="token punctuation">,</span> <span class="token punctuation">{</span>
+	<span class="token comment">// 进入业务单页时，页面栈只有一个，自定义导航左侧返回按钮跳转的路径</span>
+	<span class="token literal-property property">homePage</span><span class="token operator">:</span> <span class="token string">&quot;/&quot;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h2 id="兼容提示"><a href="index.html#兼容提示" class="header-anchor">#</a> 兼容提示</h2> <ul><li>支付宝小程序需要开启 component2 编译</li></ul> <h2 id="版本"><a href="index.html#版本" class="header-anchor">#</a> 版本</h2> <h4 id="v1-6-1-2020-12-30"><a href="index.html#v1-6-1-2020-12-30" class="header-anchor">#</a> v1.6.1(2020-12-30)</h4> <ul><li>添加头条小程序的支持</li> <li>调整 cl-waterfall 组件，支持自定义列数</li></ul> <h4 id="v1-5-1-2020-12-28"><a href="index.html#v1-5-1-2020-12-28" class="header-anchor">#</a> v1.5.1(2020-12-28)</h4> <ul><li>重写 cl-filter-bar 支持升序降序, 下拉框，开关，自定义筛选，更加自由</li></ul> <h4 id="v1-4-4-2020-12-23"><a href="index.html#v1-4-4-2020-12-23" class="header-anchor">#</a> v1.4.4(2020-12-23)</h4> <ul><li>全面支持支付宝小程序</li> <li>优化 cl-noticebar 组件</li></ul> <h4 id="v1-3-9-2020-12-18"><a href="index.html#v1-3-9-2020-12-18" class="header-anchor">#</a> v1.3.9(2020-12-18)</h4> <ul><li>重写 <code>cl-form</code> 验证规则</li> <li>处理 <code>cl-form</code> 在 app 上不生效问题</li> <li><code>cl-loading</code> 添加主题</li> <li><code>cl-button</code> 添加加载样式</li></ul> <h4 id="v1-3-7-2020-12-16"><a href="index.html#v1-3-7-2020-12-16" class="header-anchor">#</a> v1.3.7(2020-12-16)</h4> <ul><li><code>cl-form</code> 添加参数 <code>disabled</code> 表单禁用</li> <li><code>cl-select</code> 添加参数 <code>border</code> 边框</li> <li><code>cl-textarea</code> 添加参数 <code>count</code> 计数</li> <li>解决 app 下颜色异常问题</li></ul> <h4 id="v1-3-6-2020-12-15"><a href="index.html#v1-3-6-2020-12-15" class="header-anchor">#</a> v1.3.6(2020-12-15)</h4> <ul><li><code>cl-guide</code> 添加动画</li> <li>解决 cl-button 在安卓 app 下 loading 错位</li></ul> <h4 id="v1-3-5-2020-12-14"><a href="index.html#v1-3-5-2020-12-14" class="header-anchor">#</a> v1.3.5(2020-12-14)</h4> <ul><li>添加 <code>cl-calendar</code> 日历组件</li> <li>优化样式细节</li></ul> <h4 id="v1-3-4-2020-12-11"><a href="index.html#v1-3-4-2020-12-11" class="header-anchor">#</a> v1.3.4(2020-12-11)</h4> <ul><li>修改 <code>cl-select</code> 数据显示错误问题</li> <li>修改 <code>cl-select-region</code> 数据显示问题</li> <li><code>cl-select</code> 添加 <code>defaultFirstOption</code> 是否默认返回第一个</li></ul> <h4 id="v1-1-10-2020-12-08"><a href="index.html#v1-1-10-2020-12-08" class="header-anchor">#</a> v1.1.10(2020-12-08)</h4> <ul><li>添加 <code>ClCanvas</code> 支持超出隐藏, 圆角, 边框...</li></ul> <h4 id="v1-1-9-2020-12-04"><a href="index.html#v1-1-9-2020-12-04" class="header-anchor">#</a> v1.1.9(2020-12-04)</h4> <ul><li><code>cl-text</code> 添加 <code>prefix-icon</code> <code>suffix-icon</code> <code>@tap</code></li> <li><code>cl-tabs</code> 添加 <code>color</code></li> <li><code>cl-input</code> 添加 <code>@prefix-icon-tap</code> <code>@suffix-icon-tap</code></li> <li>解决 <code>cl-sticky</code> 代码异常</li></ul> <h4 id="v1-1-0-2020-11-26"><a href="index.html#v1-1-0-2020-11-26" class="header-anchor">#</a> v1.1.0(2020-11-26)</h4> <ul><li>重构部分组件，更新文档</li> <li>调整项目结构，添加 props 说明；</li> <li>修改 easycom</li></ul> <div class="language-js extra-class"><pre class="language-js"><code>	<span class="token punctuation">{</span>
+		<span class="token literal-property property">easycom</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+			<span class="token literal-property property">custom</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+				<span class="token string-property property">&quot;cl-(.\*)&quot;</span><span class="token operator">:</span> <span class="token string">&quot;cl-uni/components/cl-$1/cl-$1.vue&quot;</span>
+			<span class="token punctuation">}</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><!----> <span class="next"><a href="components/basic/button.html">
+        Button 按钮
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><!----></div></div>
+    <script src="../assets/js/app.632f5902.js" defer></script><script src="../assets/js/2.1d567b8e.js" defer></script><script src="../assets/js/44.c483aa5d.js" defer></script>
+  </body>
+</html>

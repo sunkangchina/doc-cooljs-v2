@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>滚动区域 | COOL-UNI</title>
+    <meta name="generator" content="VuePress 1.7.1">
+    <script>
+            let oldHref = document.location.href;
+			let box = document.createElement("div");
+			box.className = 'h5-demo'
+            let iframe = document.createElement("iframe");
+            let img = document.createElement("img");
+            let qrcode = document.createElement("img");
+            let tips = document.createElement("p");
+
+            window.onload = function () {
+                let bodyList = document.querySelector("body")
+                    , observer = new MutationObserver(function (mutations) {
+                        mutations.forEach(function (mutation) {
+                            if (oldHref != document.location.href) {
+								oldHref = document.location.href;
+								
+								console.log(oldHref)
+								
+								onUrlChange(oldHref)
+								setWxVideoCard(oldHref)
+                            }
+                        });
+                    });
+
+                let config = {
+                    childList: true,
+                    subtree: true
+                };
+
+                observer.observe(bodyList, config);
+                
+				// box.append(img, iframe, tips, tips);
+				onUrlChange(location.href);
+				setWxVideoCard(location.href)
+				setNavBadge()
+            };
+
+            function onUrlChange(url) {
+				let className = document.querySelector('.theme-container').className.replace('uni', '')
+				
+                if (!document.querySelector('.h5-demo') && document.querySelector('.page')) {
+                    document.querySelector('.page').append(box);
+                }
+
+                if (url.split('/')[3]== 'uni' && !url.includes('components/test')) {
+                    document.querySelector('.theme-container').className = className + ' uni'
+                    box.style.display = 'block'
+
+                    box.style.position = "fixed";
+                    box.style.top = "2rem";
+                    box.style["z-index"] = 99;
+                    box.style["background-color"] = "#fff";
+                    box.style["border-radius"] = "66px";
+                    box.style["transform"] = "scale(0.85)";
+
+                    img.src = "/phone.png";
+                    img.style.display = "block";
+                    img.style.height = "800px";
+                    img.style.width = "420px";
+                    img.style.position = "relative";
+                    img.style["z-index"] = "2";
+                    img.style["pointer-events"] = "none";
+
+                    qrcode.src = "/uni/miniapp.jpeg";
+                    qrcode.style.display = "block";
+                    qrcode.style.height = "200px";
+                    qrcode.style.width = "200px";
+                    qrcode.style.position = "absolute";
+                    qrcode.style.bottom = "-220px";
+                    qrcode.style.left = "calc(50% - 100px)";
+                    qrcode.style["z-index"] = "2";
+
+                    tips.innerText = '示例仅供参考，请以真机为主';
+                    tips.style['text-align'] = "center";
+                    tips.style.width = "100%";
+                    tips.style.position = "absolute";
+                    tips.style.bottom = "14px";
+                    tips.style.left = "0";
+                    tips.style["z-index"] = "2";
+                    tips.style["font-size"] = "13px";
+
+                    iframe.src = "";
+                    iframe.setAttribute("frameborder", 0);
+                    iframe.style.display = "block";
+                    iframe.style.height = "692px";
+                    iframe.style.width = "364px";
+                    iframe.style.position = "absolute";
+                    iframe.style.left = "28px";
+                    iframe.style.top = "60px";
+
+                    let path = url.split("/uni/")[1].replace("components", "/pages/demo");
+
+                    if (url.includes("components")) {
+                        let url = 'https://uni-demo.cool-js.com?r=' + Math.random() + '/#' + path;
+                        iframe.src = url.replace('.html', '');
+                    } else {
+                        iframe.src = "https://uni-demo.cool-js.com?r=" + Math.random();
+                    }
+                    box.append(img, iframe, tips, tips);
+                } else {
+                    document.querySelector('.theme-container').className = className
+                    box.style.display = 'none'
+                }
+			}
+			
+			function setWxVideoCard(url) {
+				let img = document.querySelector('.wx-video-card')
+
+				if (!img) {
+					img = document.createElement('img');
+					img.src = '/wx-video-card.jpg'
+					img.className = 'wx-video-card'
+					document.body.append(img)
+				}
+
+				console.log(url)
+
+				img.style.display = url !== 'http://localhost:8081/' ? 'none' : 'block'
+			}
+
+			function setNavBadge() {
+				let div = document.querySelector('.home-badge')
+
+				if (!div) {
+					div = document.createElement('div');
+					div.className = 'home-badge'
+					document.querySelector('.nav-item:first-child').append(div)
+				}
+			}
+            </script>
+    <meta name="description" content="COOL-UNI官方文档">
+    
+    <link rel="preload" href="../../../assets/css/0.styles.f86feb59.css" as="style"><link rel="preload" href="../../../assets/js/app.632f5902.js" as="script"><link rel="preload" href="../../../assets/js/2.1d567b8e.js" as="script"><link rel="preload" href="../../../assets/js/76.ce57270e.js" as="script"><link rel="prefetch" href="../../../assets/js/10.5c4346d3.js"><link rel="prefetch" href="../../../assets/js/11.25f4c5c1.js"><link rel="prefetch" href="../../../assets/js/12.aab2f8f3.js"><link rel="prefetch" href="../../../assets/js/13.ede91274.js"><link rel="prefetch" href="../../../assets/js/14.5bbc365a.js"><link rel="prefetch" href="../../../assets/js/15.7d445c6e.js"><link rel="prefetch" href="../../../assets/js/16.d68ba72b.js"><link rel="prefetch" href="../../../assets/js/17.36828e6c.js"><link rel="prefetch" href="../../../assets/js/18.ec16d486.js"><link rel="prefetch" href="../../../assets/js/19.57258ca2.js"><link rel="prefetch" href="../../../assets/js/20.dc1dfb5d.js"><link rel="prefetch" href="../../../assets/js/21.c966532e.js"><link rel="prefetch" href="../../../assets/js/22.37a39ead.js"><link rel="prefetch" href="../../../assets/js/23.088c7eac.js"><link rel="prefetch" href="../../../assets/js/24.7b561970.js"><link rel="prefetch" href="../../../assets/js/25.d2014e69.js"><link rel="prefetch" href="../../../assets/js/26.52fa5b02.js"><link rel="prefetch" href="../../../assets/js/27.bc132651.js"><link rel="prefetch" href="../../../assets/js/28.d26c94c4.js"><link rel="prefetch" href="../../../assets/js/29.d178336c.js"><link rel="prefetch" href="../../../assets/js/3.c5336671.js"><link rel="prefetch" href="../../../assets/js/30.d69ae124.js"><link rel="prefetch" href="../../../assets/js/31.962a7921.js"><link rel="prefetch" href="../../../assets/js/32.6bfca414.js"><link rel="prefetch" href="../../../assets/js/33.8e97feba.js"><link rel="prefetch" href="../../../assets/js/34.efd3a73c.js"><link rel="prefetch" href="../../../assets/js/35.27186de7.js"><link rel="prefetch" href="../../../assets/js/36.87b083a3.js"><link rel="prefetch" href="../../../assets/js/37.be3ea5ed.js"><link rel="prefetch" href="../../../assets/js/38.fc7e1daf.js"><link rel="prefetch" href="../../../assets/js/39.0075764f.js"><link rel="prefetch" href="../../../assets/js/4.d4a1aa4c.js"><link rel="prefetch" href="../../../assets/js/40.8f1fa7df.js"><link rel="prefetch" href="../../../assets/js/41.0488ab1a.js"><link rel="prefetch" href="../../../assets/js/42.b9a2aa89.js"><link rel="prefetch" href="../../../assets/js/43.99db70d9.js"><link rel="prefetch" href="../../../assets/js/44.c483aa5d.js"><link rel="prefetch" href="../../../assets/js/45.c5d39b29.js"><link rel="prefetch" href="../../../assets/js/46.7dd13f59.js"><link rel="prefetch" href="../../../assets/js/47.dffb79e0.js"><link rel="prefetch" href="../../../assets/js/48.bf62eb09.js"><link rel="prefetch" href="../../../assets/js/49.7b60e2e9.js"><link rel="prefetch" href="../../../assets/js/5.03a08fb3.js"><link rel="prefetch" href="../../../assets/js/50.e46c47ab.js"><link rel="prefetch" href="../../../assets/js/51.b006f06f.js"><link rel="prefetch" href="../../../assets/js/52.b271eac9.js"><link rel="prefetch" href="../../../assets/js/53.cb2be355.js"><link rel="prefetch" href="../../../assets/js/54.157397eb.js"><link rel="prefetch" href="../../../assets/js/55.d6cb274f.js"><link rel="prefetch" href="../../../assets/js/56.18eb9610.js"><link rel="prefetch" href="../../../assets/js/57.3bfe4b73.js"><link rel="prefetch" href="../../../assets/js/58.ddc351e4.js"><link rel="prefetch" href="../../../assets/js/59.bf7297f9.js"><link rel="prefetch" href="../../../assets/js/6.55235906.js"><link rel="prefetch" href="../../../assets/js/60.38f9822b.js"><link rel="prefetch" href="../../../assets/js/61.0cb8b483.js"><link rel="prefetch" href="../../../assets/js/62.9f9802cc.js"><link rel="prefetch" href="../../../assets/js/63.8cc6f33f.js"><link rel="prefetch" href="../../../assets/js/64.83a96a63.js"><link rel="prefetch" href="../../../assets/js/65.cfd0f06b.js"><link rel="prefetch" href="../../../assets/js/66.b6950a7f.js"><link rel="prefetch" href="../../../assets/js/67.c0a281eb.js"><link rel="prefetch" href="../../../assets/js/68.80e56641.js"><link rel="prefetch" href="../../../assets/js/69.03970171.js"><link rel="prefetch" href="../../../assets/js/7.65c986a9.js"><link rel="prefetch" href="../../../assets/js/70.1310e9ae.js"><link rel="prefetch" href="../../../assets/js/71.42f22a00.js"><link rel="prefetch" href="../../../assets/js/72.69eb0211.js"><link rel="prefetch" href="../../../assets/js/73.923d5a33.js"><link rel="prefetch" href="../../../assets/js/74.2978ada8.js"><link rel="prefetch" href="../../../assets/js/75.f31c7b12.js"><link rel="prefetch" href="../../../assets/js/77.e1edd344.js"><link rel="prefetch" href="../../../assets/js/78.664b6a81.js"><link rel="prefetch" href="../../../assets/js/79.3edbffd4.js"><link rel="prefetch" href="../../../assets/js/8.1ff34c57.js"><link rel="prefetch" href="../../../assets/js/80.442991f5.js"><link rel="prefetch" href="../../../assets/js/81.612bb059.js"><link rel="prefetch" href="../../../assets/js/82.fc7ce266.js"><link rel="prefetch" href="../../../assets/js/83.5609bf38.js"><link rel="prefetch" href="../../../assets/js/84.6d29c805.js"><link rel="prefetch" href="../../../assets/js/85.775dcaec.js"><link rel="prefetch" href="../../../assets/js/86.8a7ea3e9.js"><link rel="prefetch" href="../../../assets/js/87.346bae44.js"><link rel="prefetch" href="../../../assets/js/88.ec1a855d.js"><link rel="prefetch" href="../../../assets/js/89.1c577c10.js"><link rel="prefetch" href="../../../assets/js/9.91e158b5.js"><link rel="prefetch" href="../../../assets/js/90.c09ba3ef.js"><link rel="prefetch" href="../../../assets/js/91.00826bbb.js"><link rel="prefetch" href="../../../assets/js/92.1cd87f7a.js"><link rel="prefetch" href="../../../assets/js/93.bc079dd5.js"><link rel="prefetch" href="../../../assets/js/94.7c0966f1.js"><link rel="prefetch" href="../../../assets/js/95.3a5f0cf9.js">
+    <link rel="stylesheet" href="../../../assets/css/0.styles.f86feb59.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="../../../index.html" class="home-link router-link-active"><img src="https://cool-show.oss-cn-shanghai.aliyuncs.com/comm/docs/logo.png" alt="COOL-UNI" class="logo"> <span class="site-name can-hide">COOL-UNI</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="../../../index.html" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="../../index.html" class="nav-link router-link-active">
+  组件
+</a></div><div class="nav-item"><a href="https://cool-js.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  后端
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><a href="https://uni-docs.cool-js.com/team/" class="nav-link">
+  团队
+</a></div><div class="nav-item"><a href="https://github.com/cool-team-official/cool-uni" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="../../../index.html" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="../../index.html" class="nav-link router-link-active">
+  组件
+</a></div><div class="nav-item"><a href="https://cool-js.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  后端
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><a href="https://uni-docs.cool-js.com/team/" class="nav-link">
+  团队
+</a></div><div class="nav-item"><a href="https://github.com/cool-team-official/cool-uni" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="../../index.html" aria-current="page" class="sidebar-link">COOL-UNI</a></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>组件</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><section class="sidebar-group is-sub-group depth-1"><p class="sidebar-heading"><span>Basic 基础组件</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="../basic/button.html" class="sidebar-link">Button 按钮</a></li><li><a href="../basic/text.html" class="sidebar-link">Text 文本</a></li><li><a href="../basic/input.html" class="sidebar-link">Input 输入框</a></li><li><a href="../basic/image.html" class="sidebar-link">Image 图片</a></li><li><a href="../basic/icon.html" class="sidebar-link">Icon 图标</a></li><li><a href="../basic/tag.html" class="sidebar-link">Tag 标签</a></li><li><a href="../basic/divider.html" class="sidebar-link">Divider 标签</a></li></ul></section></li><li><section class="sidebar-group is-sub-group depth-1"><p class="sidebar-heading"><span>Feedback 反馈组件</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="../feedback/toast.html" class="sidebar-link">Toast 吐司提示</a></li><li><a href="../feedback/message.html" class="sidebar-link">Message 消息提示</a></li><li><a href="../feedback/loading.html" class="sidebar-link">Loading 加载框</a></li></ul></section></li><li><section class="sidebar-group is-sub-group depth-1"><p class="sidebar-heading"><span>Form 表单组件</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="../form/radio.html" class="sidebar-link">Radio 单选框</a></li><li><a href="../form/checkbox.html" class="sidebar-link">Checkbox 多选框</a></li><li><a href="../form/switch.html" class="sidebar-link">Switch 开关</a></li><li><a href="../form/select.html" class="sidebar-link">Select 下拉选择</a></li><li><a href="../form/select-region.html" class="sidebar-link">SelectRegion 下拉城市选择</a></li><li><a href="../form/input-number.html" class="sidebar-link">InputNumber 计数器</a></li><li><a href="../form/textarea.html" class="sidebar-link">Textarea 文本域</a></li><li><a href="../form/upload.html" class="sidebar-link">Upload 上传</a></li><li><a href="../form/rate.html" class="sidebar-link">Rate 评分</a></li><li><a href="../form/rules.html" class="sidebar-link">Rules 表单规则</a></li></ul></section></li><li><section class="sidebar-group is-sub-group depth-1"><p class="sidebar-heading"><span>Operate 操作组件</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="../operate/loadmore.html" class="sidebar-link">Loadmore 加载更多</a></li><li><a href="../operate/dialog.html" class="sidebar-link">Dialog 对话框</a></li><li><a href="../operate/confirm.html" class="sidebar-link">Confirm 确认框</a></li><li><a href="../operate/action-sheet.html" class="sidebar-link">ActionSheet 底部弹框</a></li><li><a href="../operate/search.html" class="sidebar-link">Search 搜索框</a></li></ul></section></li><li><section class="sidebar-group is-sub-group depth-1"><p class="sidebar-heading"><span>Nav 导航组件</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="../nav/tabs.html" class="sidebar-link">Tabs 选项卡</a></li><li><a href="../nav/topbar.html" class="sidebar-link">Topbar 顶部导航</a></li><li><a href="../nav/tabbar.html" class="sidebar-link">Tabbar 底部导航</a></li></ul></section></li><li><section class="sidebar-group is-sub-group depth-1"><p class="sidebar-heading open"><span>Layout 布局组件</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="flex.html" class="sidebar-link">Flex 柔性</a></li><li><a href="grid.html" class="sidebar-link">Grid 宫格</a></li><li><a href="waterfall.html" class="sidebar-link">WaterFall 瀑布流</a></li><li><a href="list.html" class="sidebar-link">List 列表</a></li><li><a href="card.html" class="sidebar-link">Card 卡片</a></li><li><a href="scroller.html" aria-current="page" class="active sidebar-link">Scroller 滚动区域</a></li></ul></section></li><li><section class="sidebar-group is-sub-group depth-1"><p class="sidebar-heading"><span>View 视图组件</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="../view/popup.html" class="sidebar-link">Popup 弹出层</a></li><li><a href="../view/badge.html" class="sidebar-link">Badge 角标</a></li><li><a href="../view/avatar.html" class="sidebar-link">Avatar 头像</a></li><li><a href="../view/countdown.html" class="sidebar-link">CountDown 倒计时</a></li><li><a href="../view/noticebar.html" class="sidebar-link">NoticeBar 通知公告栏</a></li><li><a href="../view/progress.html" class="sidebar-link">Progress 进度条</a></li><li><a href="../view/slider.html" class="sidebar-link">Slider 滑块</a></li><li><a href="../view/swiper.html" class="sidebar-link">Swiper 轮播图</a></li><li><a href="../view/timeline.html" class="sidebar-link">Timeline 时间线</a></li></ul></section></li><li><section class="sidebar-group is-sub-group depth-1"><p class="sidebar-heading"><span>Advanced 高级组件</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="../advanced/list-index.html" class="sidebar-link">ListIndex 索引列表</a></li><li><a href="../advanced/filter-bar.html" class="sidebar-link">FilterBar 过滤栏</a></li><li><a href="../advanced/captcha.html" class="sidebar-link">Captcha 验证码输入框</a></li><li><a href="../advanced/cropper.html" class="sidebar-link">Cropper 图片裁剪</a></li><li><a href="../advanced/canvas.html" class="sidebar-link">Canvas 画布</a></li><li><a href="../advanced/guide.html" class="sidebar-link">Guide 操作引导</a></li><li><a href="../advanced/calendar.html" class="sidebar-link">Calendar 日历</a></li></ul></section></li><li><section class="sidebar-group is-sub-group depth-1"><p class="sidebar-heading"><span>Test 特殊组件</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="../test/page.html" class="sidebar-link">Page 页面</a></li></ul></section></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h4 id="滚动区域"><a href="scroller.html#滚动区域" class="header-anchor">#</a> 滚动区域</h4> <p>自定义下拉刷新，回到顶部，多列切换</p> <h4 id="平台差异"><a href="scroller.html#平台差异" class="header-anchor">#</a> 平台差异</h4> <table><thead><tr><th>App</th> <th>H5</th> <th>微信小程序</th> <th>支付宝小程序</th> <th>头条小程序</th></tr></thead> <tbody><tr><td>√</td> <td>√</td> <td>√</td> <td>√</td> <td>√</td></tr></tbody></table> <h4 id="props"><a href="scroller.html#props" class="header-anchor">#</a> Props</h4> <table><thead><tr><th>参数</th> <th>说明</th> <th>类型</th> <th>可选值</th> <th>默认值</th></tr></thead> <tbody><tr><td>top</td> <td>距离顶部多少 px 触发</td> <td>number</td> <td></td> <td>80</td></tr> <tr><td>bottom</td> <td>距离底部多少 px 触发</td> <td>number</td> <td></td> <td>100</td></tr> <tr><td>loading-text</td> <td>正在刷新文案</td> <td>string</td> <td></td> <td>正在刷新</td></tr> <tr><td>pulling-text</td> <td>下拉刷新文案</td> <td>string</td> <td></td> <td>下拉刷新</td></tr> <tr><td>release-text</td> <td>释放刷新文案</td> <td>string</td> <td></td> <td>释放刷新</td></tr> <tr><td>scroll-top</td> <td>滚动条距离顶部位置</td> <td>number</td> <td></td> <td></td></tr> <tr><td>scroll-into-view</td> <td>滚动到对应元素 id</td> <td>string</td> <td></td> <td></td></tr> <tr><td>scroll-with-animation</td> <td>在设置滚动条位置时使用动画过渡</td> <td>boolean</td> <td></td> <td></td></tr> <tr><td>enable-back-to-top</td> <td>滚动条返回顶部</td> <td>boolean</td> <td></td> <td></td></tr> <tr><td>show-back-top-button</td> <td>是否显示回到顶部按钮</td> <td>boolean</td> <td></td> <td>true</td></tr> <tr><td>show-scrollbar</td> <td>控制是否出现滚动条</td> <td>boolean</td> <td></td> <td></td></tr> <tr><td>enable-flex</td> <td>启用 flexbox 布局</td> <td>boolean</td> <td></td> <td></td></tr> <tr><td>refresher-enabled</td> <td>是否开启下拉刷新</td> <td>boolean</td> <td></td> <td>true</td></tr></tbody></table> <h4 id="methods"><a href="scroller.html#methods" class="header-anchor">#</a> Methods</h4> <table><thead><tr><th>事件名称</th> <th>说明</th> <th>参数</th></tr></thead> <tbody><tr><td>end</td> <td>结束（收起）下拉刷新</td> <td>function()</td></tr> <tr><td>scrollTo</td> <td>滚动到</td> <td>function(top)</td></tr> <tr><td>backTop</td> <td>回到顶部</td> <td>function()</td></tr></tbody></table> <h4 id="slots"><a href="scroller.html#slots" class="header-anchor">#</a> Slots</h4> <table><thead><tr><th>插槽</th> <th>说明</th> <th>参数</th></tr></thead> <tbody><tr><td>loading</td> <td>下拉加载区域</td> <td>{text, status, move}</td></tr> <tr><td>default</td> <td>内容区域</td> <td></td></tr></tbody></table> <p>status：</p> <ul><li><code>pulling</code> 下拉中</li> <li><code>loading</code> 加载中</li> <li><code>end</code> 结束</li></ul> <h4 id="示例"><a href="scroller.html#示例" class="header-anchor">#</a> 示例</h4> <p>基本用法</p> <div class="language-html extra-class"><pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>view</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>demo-scroller<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>cl-scroller</span> <span class="token attr-name">ref</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>scroller<span class="token punctuation">&quot;</span></span> <span class="token attr-name">@up</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>onUp<span class="token punctuation">&quot;</span></span> <span class="token attr-name">@down</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>onDown<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+			<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>view</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>item<span class="token punctuation">&quot;</span></span> <span class="token attr-name">v-for</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>(item, index) in list<span class="token punctuation">&quot;</span></span> <span class="token attr-name">:key</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>index<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+				<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>cl-list-item</span> <span class="token attr-name">:label</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>`${index + 1}`<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>cl-list-item</span><span class="token punctuation">&gt;</span></span>
+			<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>view</span><span class="token punctuation">&gt;</span></span>
+
+			<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>cl-loadmore</span> <span class="token attr-name">v-if</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>list.length &gt; 0<span class="token punctuation">&quot;</span></span> <span class="token attr-name">:loading</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>loading<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>cl-loadmore</span><span class="token punctuation">&gt;</span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>cl-scroller</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>view</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+	<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+		<span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			<span class="token keyword">return</span> <span class="token punctuation">{</span>
+				<span class="token literal-property property">list</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+				<span class="token literal-property property">loading</span><span class="token operator">:</span> <span class="token boolean">false</span>
+			<span class="token punctuation">}</span><span class="token punctuation">;</span>
+		<span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+		<span class="token function">created</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			<span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">onDown</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+		<span class="token literal-property property">methods</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+			<span class="token function">onUp</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+				<span class="token keyword">this</span><span class="token punctuation">.</span>loading <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+
+				<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+					<span class="token keyword">this</span><span class="token punctuation">.</span>list<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token operator">...</span><span class="token keyword">new</span> <span class="token class-name">Array</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">fill</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+					<span class="token keyword">this</span><span class="token punctuation">.</span>loading <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+				<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+			<span class="token function">onDown</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+				<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+					<span class="token keyword">this</span><span class="token punctuation">.</span>list <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Array</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">fill</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+					<span class="token keyword">this</span><span class="token punctuation">.</span>$refs<span class="token punctuation">[</span><span class="token string">&quot;scroller&quot;</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+				<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token punctuation">}</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>scss<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token style"><span class="token language-css">
+	<span class="token selector">page,
+	.demo-scroller</span> <span class="token punctuation">{</span>
+		<span class="token property">height</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span>
+		<span class="token property">overflow</span><span class="token punctuation">:</span> hidden<span class="token punctuation">;</span>
+
+		<span class="token selector">.item</span> <span class="token punctuation">{</span>
+			<span class="token property">margin</span><span class="token punctuation">:</span> 20rpx<span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="card.html" class="prev">
+        Card 卡片
+      </a></span> <span class="next"><a href="../view/popup.html">
+        Popup 弹出层
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><!----></div></div>
+    <script src="../../../assets/js/app.632f5902.js" defer></script><script src="../../../assets/js/2.1d567b8e.js" defer></script><script src="../../../assets/js/76.ce57270e.js" defer></script>
+  </body>
+</html>
