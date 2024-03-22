@@ -98,7 +98,7 @@
                     let path = url.split("/uni/")[1].replace("components", "/pages/demo");
 
                     if (url.includes("components")) {
-                        let url = 'https://doc-cool.qihetaiji.com/h5/#' + path;
+                        let url = '/h5/#' + path;
                         iframe.src = url.replace('.html', '');
                     } else {
                         iframe.src = "https://uni-demo.cool-js.com?r=" + Math.random();
