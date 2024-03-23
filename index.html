@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
@@ -7,8 +8,8 @@
     <meta name="generator" content="VuePress 1.7.1">
     <script>
             let oldHref = document.location.href;
-			let box = document.createElement("div");
-			box.className = 'h5-demo'
+            let box = document.createElement("div");
+            box.className = 'h5-demo'
             let iframe = document.createElement("iframe");
             let img = document.createElement("img");
             let qrcode = document.createElement("img");
@@ -19,12 +20,12 @@
                     , observer = new MutationObserver(function (mutations) {
                         mutations.forEach(function (mutation) {
                             if (oldHref != document.location.href) {
-								oldHref = document.location.href;
-								
-								console.log(oldHref)
-								
-								onUrlChange(oldHref)
-								setWxVideoCard(oldHref)
+                                oldHref = document.location.href;
+                                
+                                console.log(oldHref)
+                                
+                                onUrlChange(oldHref)
+                                setWxVideoCard(oldHref)
                             }
                         });
                     });
@@ -36,15 +37,15 @@
 
                 observer.observe(bodyList, config);
                 
-				// box.append(img, iframe, tips, tips);
-				onUrlChange(location.href);
-				setWxVideoCard(location.href)
-				setNavBadge()
+                // box.append(img, iframe, tips, tips);
+                onUrlChange(location.href);
+                setWxVideoCard(location.href)
+                setNavBadge()
             };
 
             function onUrlChange(url) {
-				let className = document.querySelector('.theme-container').className.replace('uni', '')
-				
+                let className = document.querySelector('.theme-container').className.replace('uni', '')
+                
                 if (!document.querySelector('.h5-demo') && document.querySelector('.page')) {
                     document.querySelector('.page').append(box);
                 }
@@ -108,32 +109,32 @@
                     document.querySelector('.theme-container').className = className
                     box.style.display = 'none'
                 }
-			}
-			
-			function setWxVideoCard(url) {
-				let img = document.querySelector('.wx-video-card')
+            }
+            
+            function setWxVideoCard(url) {
+                let img = document.querySelector('.wx-video-card')
 
-				if (!img) {
-					img = document.createElement('img');
-					img.src = '/wx-video-card.jpg'
-					img.className = 'wx-video-card'
-					document.body.append(img)
-				}
+                if (!img) {
+                    img = document.createElement('img');
+                    img.src = '/wx-video-card.jpg'
+                    img.className = 'wx-video-card'
+                    document.body.append(img)
+                }
 
-				console.log(url)
+                console.log(url)
 
-				img.style.display = url !== 'http://localhost:8081/' ? 'none' : 'block'
-			}
+                img.style.display = url !== 'http://localhost:8081/' ? 'none' : 'block'
+            }
 
-			function setNavBadge() {
-				let div = document.querySelector('.home-badge')
+            function setNavBadge() {
+                let div = document.querySelector('.home-badge')
 
-				if (!div) {
-					div = document.createElement('div');
-					div.className = 'home-badge'
-					document.querySelector('.nav-item:first-child').append(div)
-				}
-			}
+                if (!div) {
+                    div = document.createElement('div');
+                    div.className = 'home-badge'
+                    document.querySelector('.nav-item:first-child').append(div)
+                }
+            }
             </script>
     <meta name="description" content="COOL-UNI官方文档">
     
@@ -141,53 +142,55 @@
     <link rel="stylesheet" href="assets/css/0.styles.f86feb59.css">
   </head>
   <body>
-    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="index.html" aria-current="page" class="home-link router-link-exact-active router-link-active"><img src="https://cool-show.oss-cn-shanghai.aliyuncs.com/comm/docs/logo.png" alt="COOL-UNI" class="logo"> <span class="site-name can-hide">COOL-UNI</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="index.html" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a aria-current='page' class='home-link router-link-exact-active router-link-active' href='/'><img src="https://cool-show.oss-cn-shanghai.aliyuncs.com/comm/docs/logo.png" alt="COOL-UNI" class="logo"> <span class="site-name can-hide">COOL-UNI</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a aria-current='page' class='nav-link router-link-exact-active router-link-active' href='/'>
   首页
-</a></div><div class="nav-item"><a href="uni/index.html" class="nav-link">
+</a></div><div class="nav-item"><a   href='/uni/'>
+  组件
+</a></div><div class="nav-item"><a href="https://site.qihetaiji.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  PHP软件技术支持
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><a href="https://github.com/thefunpower/" class="nav-link">
+  团队
+</a></div><div class="nav-item"><a href="https://github.com/sunkangchina/cool-uni-2" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a aria-current='page' class='nav-link router-link-exact-active router-link-active' href='/'>
+  首页
+</a></div><div class="nav-item"><a  href='/uni/'>
   组件
 </a></div><div class="nav-item"><a href="https://cool-js.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
-  后端
-  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><a href="https://uni-docs.cool-js.com/team/" class="nav-link">
+  PHP软件技术支持
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><a href="https://github.com/thefunpower/" class="nav-link">
   团队
-</a></div><div class="nav-item"><a href="https://github.com/cool-team-official/cool-uni" target="_blank" rel="noopener noreferrer" class="nav-link external">
+</a></div><div class="nav-item"><a href="https://github.com/sunkangchina/cool-uni-2" target="_blank" rel="noopener noreferrer" class="nav-link external">
   Github
-  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="index.html" aria-current="page" class="nav-link router-link-exact-active router-link-active">
-  首页
-</a></div><div class="nav-item"><a href="uni/index.html" class="nav-link">
-  组件
-</a></div><div class="nav-item"><a href="https://cool-js.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
-  后端
-  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><a href="https://uni-docs.cool-js.com/team/" class="nav-link">
-  团队
-</a></div><div class="nav-item"><a href="https://github.com/cool-team-official/cool-uni" target="_blank" rel="noopener noreferrer" class="nav-link external">
-  Github
-  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <!----> </aside> <main aria-labelledby="main-title" class="home"><header class="hero"><img src="logo.png.html" alt="hero"> <h1 id="main-title">
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <!----> </aside> <main aria-labelledby="main-title" class="home"><header class="hero"> <h1 id="main-title">
       简单易用的UNI-APP组件库
     </h1> <p class="description">
       全端全套解决方案，涵盖服务端，桌面端
-    </p> <p class="action"><a href="uni/index.html" class="nav-link action-button">
+    </p> <p class="action"><a class='nav-link action-button' href='/uni/'>
   快速开始
-</a></p></header> <div class="features"><div class="feature"><h2>简单易用多端</h2> <p>参照了Element-UI的代码风格，结合UNI-APP组件的特性 + 简洁的UI设计风格开发出的简单易用的UI组件库，一次编码多端运行</p></div><div class="feature"><h2>全套解决方案</h2> <p>除了提供UI解决方案，COOL还提供了服务端Admin解决方案，桌面端Electron解决方案，一个项目只需用COOL都能解决</p></div><div class="feature"><h2>多个成熟案例</h2> <p>目前基于COOL已经开发出了多套案例，广大开发者已经将它应用于各自的项目，目前大约有1000+的公司正在使用COOL技术开发他们的项目</p></div></div> <div class="theme-default-content custom content__default"><h1 id="快速上手"><a href="index.html#快速上手" class="header-anchor">#</a> 快速上手</h1> <h2 id=""><a href="index.html#" class="header-anchor">#</a></h2> <h3 id="小程序-h5"><a href="index.html#小程序-h5" class="header-anchor">#</a> 小程序 | H5</h3> <p><img src="uni/miniapp.jpeg" style="width:260px;"> <img src="uni/h5.png" style="width:260px;"></p> <h2 id="安装"><a href="index.html#安装" class="header-anchor">#</a> 安装</h2> <p>使用 <code>yarn</code> 安装 <code>cl-uni</code> 组件：</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">yarn</span> <span class="token function">add</span> cl-uni
-</code></pre></div><p>或者使用 <code>npm</code> 安装它：</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">npm</span> i cl-uni
+</a><a class='nav-link action-button' style="margin-left:20px;" href='https://site.qihetaiji.com/dev-start/'>
+  NetteAdmin v1.0.0框架，基于ThinkPHP8.0
+</a></p></header>  <div class="theme-default-content custom content__default"> <h2 id=""><a class='header-anchor' href='/#'>#</a></h2>   <h2 id="安装"><a href="index.html#安装" class="header-anchor">#</a> 安装</h2> <p>使用 <code>yarn</code> 安装 <code>cl-uni</code> 组件：</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">yarn</span> <span class="token function">add</span> cl-uni-2
+</code></pre></div><p>或者使用 <code>npm</code> 安装它：</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">npm</span> i cl-uni -2
 </code></pre></div><p>如果你的网络环境不佳，推荐使用 <a href="https://github.com/cnpm/cnpm" target="_blank" rel="noopener noreferrer">cnpm<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>。</p> <h2 id="配置"><a href="index.html#配置" class="header-anchor">#</a> 配置</h2> <div class="custom-block tip"><p class="custom-block-title">TIP</p> <p>cool-uni 使用<code>easycom</code>模式（自动引入组件），简化组件使用。无需在页面里面引入和注册组件，按实际使用打包</p></div> <h4 id="组件自动引入"><a href="index.html#组件自动引入" class="header-anchor">#</a> 组件自动引入</h4> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// pages.json</span>
 <span class="token punctuation">{</span>
-	<span class="token string-property property">&quot;easycom&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-		<span class="token string-property property">&quot;autoscan&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
-		<span class="token string-property property">&quot;custom&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token string-property property">&quot;easycom&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token string-property property">&quot;autoscan&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+        <span class="token string-property property">&quot;custom&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
             <span class="token comment">// 1.1.0 版本前:</span>
-            <span class="token string-property property">&quot;cl-(.*)&quot;</span><span class="token operator">:</span> <span class="token string">&quot;cl-uni/components/$1/$1.vue&quot;</span>
+            <span class="token string-property property">&quot;cl-(.*)&quot;</span><span class="token operator">:</span> <span class="token string">&quot;cl-uni-2/components/$1/$1.vue&quot;</span>
 
             <span class="token comment">// 1.1.0 版本后:</span>
-            <span class="token string-property property">&quot;cl-(.*)&quot;</span><span class="token operator">:</span> <span class="token string">&quot;cl-uni/components/cl-$1/cl-$1.vue&quot;</span>
-		<span class="token punctuation">}</span>
-	<span class="token punctuation">}</span>
+            <span class="token string-property property">&quot;cl-(.*)&quot;</span><span class="token operator">:</span> <span class="token string">&quot;cl-uni-2/components/cl-$1/cl-$1.vue&quot;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre></div><h4 id="引入组件样式"><a href="index.html#引入组件样式" class="header-anchor">#</a> 引入组件样式</h4> <div class="language-html extra-class"><pre class="language-html"><code>// App.vue
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>scss<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token style"><span class="token language-css">
-	<span class="token atrule"><span class="token rule">@import</span> <span class="token string">&quot;cl-uni/index.scss&quot;</span><span class="token punctuation">;</span></span>
+    <span class="token atrule"><span class="token rule">@import</span> <span class="token string">&quot;cl-uni-2/index.scss&quot;</span><span class="token punctuation">;</span></span>
 </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span>
 </code></pre></div></div> <div class="footer">
-    Copyright © 2021 COOL | 闽ICP备20008951号-1
+    Copyright © 2021 COOL | <a href="https://beian.miit.gov.cn" target="_blank" class="imprint">沪ICP备2022030523号</a>
   </div></main></div><div class="global-ui"><!----></div></div>
     <script src="assets/js/app.632f5902.js" defer></script><script src="assets/js/2.1d567b8e.js" defer></script><script src="assets/js/7.65c986a9.js" defer></script>
   </body>
